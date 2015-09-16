@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[seburgi.com]]></title>
+  
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://seburgi.com/"/>
+  <updated>2015-09-16T05:39:28.323Z</updated>
+  <id>http://seburgi.com/</id>
+  
+  <author>
+    <name><![CDATA[Sebastian Burgstaller]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[DevMeetupK and presentation slides]]></title>
+    <link href="http://seburgi.com/2015/09/16/presentations-devmeetupk-2-3/"/>
+    <id>http://seburgi.com/2015/09/16/presentations-devmeetupk-2-3/</id>
+    <published>2015-09-16T05:10:00.000Z</published>
+    <updated>2015-09-16T05:39:28.323Z</updated>
+    <content type="html"><![CDATA[<p><img src="/images/devmeetupk/logo.jpg" alt="DevMeetupK Logo"></p>
+<p>Our meetup group <a href="www.meetup.com/devmeetupk">DevMeetupK</a> in Villach, Austria now met for the third time and I have to say I am amazed by the friendly and dedicated community that is starting to form around it! Everybody has their own personal reasons to go to tech user groups. Getting a nice and easy intro to new technologies and meeting cool people who know what it means to work in such a fast evolving sector as ours, are just two.</p>
+<p>It is also very important for me (and I think I can speak for everyone in our group), that this is a safe environment, where everybody is welcome to ask questions, no matter how basic they may be. So please don’t hesitate and join us next time in October.</p>
+<p>I wanted to share my slides (in German) from the last two meetups, so here goes:</p>
+<ul>
+<li><a href="http://seburgi.com/devmeetupk/2015-08-11/gulp">DevMeetupK August: Gulp</a></li>
+<li><a href="http://seburgi.com/devmeetupk/2015-09-15/unit-testing">DevMeetupK September: Unit Testing mit JavaScript</a></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="/images/devmeetupk/logo.jpg" alt="DevMeetupK Logo"></p>
+<p>Our meetup group <a href="www.meetup.com/devmeetupk">DevMeetupK</a> ]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Installing AutoCAD 2015 on Windows 10]]></title>
+    <link href="http://seburgi.com/2015/07/28/installing-autocad-2105-on-windows-10/"/>
+    <id>http://seburgi.com/2015/07/28/installing-autocad-2105-on-windows-10/</id>
+    <published>2015-07-28T06:15:00.000Z</published>
+    <updated>2015-09-06T06:40:17.472Z</updated>
+    <content type="html"><![CDATA[<h2 id="The_problem">The problem</h2><p>As the release of Windows 10 is imminent I wanted to try to install AutoCAD 2015 on it to see if everything would work fine after the upgrade, as Windows 10 is not (yet?) an officially supported OS for AutoCAD 2015. I downloaded VirtualBox and installed the latest preview build (10240) of Windows 10 in a virtual machine. Then I started the installation process of AutoCAD 2015 and after a couple of minutes I got the following error message:</p>
+<p><img src="/images/autocad-installation/error.jpg" alt="AutoCAD 2015 installation error"></p>
+<p>As you can see I’m trying to install the German version of AutoCAD and the error happens during the installation of the English language pack. The installer tried to find .NET framework 4.5 and came up blank. Now Windows 10 comes with .NET framework 4.6 preinstalled, which of course is backwards compatible with framework version 4.5 software. So everything should work fine, but AutoCAD seems to perform an exact version match. Bummer! After some googling I found different approaches to work around this problem. Some people suggested to edit the setup.ini of the AutoCAD installer, but that didn’t work out for me. Then I found following approach that worked like a charm!</p>
+<h2 id="DISCLAIMER!">DISCLAIMER!</h2><p>The following instructions involve editing your Windows registry, which is a dangerous and risky operation. Worst case scenario is that you won’t be able to boot your system again. So, please be aware of that! Also this approach is in no way approved or supported by Autodesk. Proceed at your own risk!</p>
+<h2 id="The_solution">The solution</h2><p>Open your registry editor by typing in “regedit” in the search box in the lower left corner of the screen and hit enter.</p>
+<p>Go to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Client.</p>
+<p><img src="/images/autocad-installation/regedit01.jpg" alt="Regedit - Step 1"></p>
+<p>Here you should see the entry with the key “Version”, which is what the AutoCAD installer checks. The value in my case was “4.6.00076”, but it is possible that depending on your Windows build and .NET version you will see a different value. Please write it down, you will need it later again. </p>
+<p>Next we want to change this value to “4.5.0”, but when we try Windows tells us that we don’t have the right permissions. So let’s get them! Right-click on the Client entry in the tree on the left side and select “Permissions…”.</p>
+<p><img src="/images/autocad-installation/regedit02.jpg" alt="Regedit - Step 2"></p>
+<p>Here we click on the “Advanced” button.</p>
+<p><img src="/images/autocad-installation/regedit03.jpg" alt="Regedit - Step 3"></p>
+<p>Now click on the “Change” link next to “TrustedInstaller”. In the following dialog you can select a user or group, that will be able to change the entry. I decided for the local Adminstrators group.</p>
+<p><img src="/images/autocad-installation/regedit04.jpg" alt="Regedit - Step 4"></p>
+<p>Close the dialogs and change the value of the Version entry to “4.5.0”.</p>
+<p><img src="/images/autocad-installation/regedit05.jpg" alt="Regedit - Step 5"></p>
+<p>Don’t close the Registry Editor yet, we will need it later to undo our changes. When you now try to install AutoCAD 2015 everything should just work!</p>
+<p><img src="/images/autocad-installation/success.jpg" alt="AutoCAD 2015 installation success"></p>
+<h2 id="Important_last_step">Important last step</h2><p>Ok so AutoCAD was installed, now it is time to undo our changes to the registry. Go back to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Client and change the Version back to whatever it was before you changed it. Close the Registry Editor and enjoy working with AutoCAD 2015 on your brand new Windows 10 installation!</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="The_problem">The problem</h2><p>As the release of Windows 10 is imminent I wanted to try to install AutoCAD 2015 on it to see if eve]]>
+    </summary>
+    
+      <category term="autocad" scheme="http://seburgi.com/tags/autocad/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[AutoCAD documentation tragedy]]></title>
+    <link href="http://seburgi.com/2015/06/17/autocad-documentation-tragedy/"/>
+    <id>http://seburgi.com/2015/06/17/autocad-documentation-tragedy/</id>
+    <published>2015-06-17T04:55:00.000Z</published>
+    <updated>2015-09-06T06:40:17.456Z</updated>
+    <content type="html"><![CDATA[<p>I´m currently working on an AutoCAD plugin using the .NET API, which Autodesk finally provides via <a href="https://www.nuget.org/packages/AutoCAD.NET/" target="_blank" rel="external">NuGet</a>. This is a big step forward because it makes it so much easier to get started with AutoCAD .NET development. Alas, the provided libraries come without XML documentation, so it´s always a game of hide and seek when you are looking for a specific functionality. In my eyes missing documentation is the single biggest problem of AutoCAD right now, which results in a steep learning curve for you and me.</p>
+<p>For example, you can get an API reference that is published by Autodesk as part of the <a href="http://usa.autodesk.com/adsk/servlet/index?siteID=123112&amp;id=773204" target="_blank" rel="external">ObjectARX</a> download. It is published in CHM format (EW!) but the bigger problem is, that it is far from complete. It is frustrating when you try to look up information about a method and you realize that only half of the members of the class at hand are covered, in the <em>official</em> docs!</p>
+<p>So now to the good news! There are a couple of excellent sources of information:</p>
+<p><a href="http://through-the-interface.typepad.com/" target="_blank" rel="external">Through the interface</a><br>Great blog by Kean Walmsley on AutoCAD. Typically two to three posts per week! I almost always find the information I need <em>there</em>.</p>
+<p><a href="http://adndevblog.typepad.com/autocad/" target="_blank" rel="external">AutoCAD DevBlog</a><br>A couple of blogs maintained by the Developer Technical Services team.</p>
+<p><a href="http://forums.autodesk.com/t5/net/bd-p/152" target="_blank" rel="external">Autodesk community board for ACAD .NET</a><br>Subscribe to the RSS feed.</p>
+<p>Apart from the virtually nonexistent official API documentation (please correct me, if I´m wrong) I actually enjoy working with AutoCAD. It is great to work on mathematical problems and it is far more rewarding to see the visual fruits of your hard labor compared to a typical forms-over-data enterprise application.</p>
+<p>Edit:<br>Autodesk also provides a <a href="http://usa.autodesk.com/adsk/servlet/index?id=1911627&amp;siteID=123112" target="_blank" rel="external">download</a> for the .NET API documentation that integrates with Visual Studio (Microsoft Help Viewer), but this contains the same amount of information as the CHM docs.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>I´m currently working on an AutoCAD plugin using the .NET API, which Autodesk finally provides via <a href="https://www.nuget.org/package]]>
+    </summary>
+    
+      <category term="autocad" scheme="http://seburgi.com/tags/autocad/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <link href="http://seburgi.com/2015/05/21/hello-world/"/>
+    <id>http://seburgi.com/2015/05/21/hello-world/</id>
+    <published>2015-05-21T06:23:00.000Z</published>
+    <updated>2015-09-06T06:40:17.456Z</updated>
+    <content type="html"><![CDATA[<p>I´m a software developer located in Villach, Austria. I work for <a href="http://www.softwarepark.cc" target="_blank" rel="external">Softwarepark Ltd</a> which provides consultancy services and tailor-made software solutions to a wide variety of companies - spanning many sectors and industries.</p>
+<p>This is my personal blog, where I want to write about topics of the software development world that are dear to me like .NET in general, software craftsmanship, event driven architectures, micro services, AutoCAD plugins and JavaScript in the browser.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>I´m a software developer located in Villach, Austria. I work for <a href="http://www.softwarepark.cc" target="_blank" rel="external">Soft]]>
+    </summary>
+    
+  </entry>
+  
+</feed>

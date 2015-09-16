@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Installing AutoCAD 2015 on Windows 10 | seburgi.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="The problemAs the release of Windows 10 is imminent I wanted to try to install AutoCAD 2015 on it to see if everything would work fine after the upgrade, as Windows 10 is not (yet?) an officially supp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Installing AutoCAD 2015 on Windows 10">
+<meta property="og:url" content="http://seburgi.com/2015/07/28/installing-autocad-2105-on-windows-10/index.html">
+<meta property="og:site_name" content="seburgi.com">
+<meta property="og:description" content="The problemAs the release of Windows 10 is imminent I wanted to try to install AutoCAD 2015 on it to see if everything would work fine after the upgrade, as Windows 10 is not (yet?) an officially supp">
+<meta property="og:image" content="http://seburgi.com/images/autocad-installation/error.jpg">
+<meta property="og:image" content="http://seburgi.com/images/autocad-installation/regedit01.jpg">
+<meta property="og:image" content="http://seburgi.com/images/autocad-installation/regedit02.jpg">
+<meta property="og:image" content="http://seburgi.com/images/autocad-installation/regedit03.jpg">
+<meta property="og:image" content="http://seburgi.com/images/autocad-installation/regedit04.jpg">
+<meta property="og:image" content="http://seburgi.com/images/autocad-installation/regedit05.jpg">
+<meta property="og:image" content="http://seburgi.com/images/autocad-installation/success.jpg">
+<meta property="og:updated_time" content="2015-09-06T06:40:17.472Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Installing AutoCAD 2015 on Windows 10">
+<meta name="twitter:description" content="The problemAs the release of Windows 10 is imminent I wanted to try to install AutoCAD 2015 on it to see if everything would work fine after the upgrade, as Windows 10 is not (yet?) an officially supp">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-63176820-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo"><!--<i class="logo"></i>--><span class="site-title">seburgi.com</span></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div class="profile" id="profile-nav">
+          <a id="profile-anchor" href="javascript:;"><img class="avatar" src="http://www.gravatar.com/avatar/2333df8d5ee6c132343dc24517a92a33.png?s=128"><i class="fa fa-caret-down"></i></a>
+        </div>
+      </nav>
+      <!--<div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://seburgi.com"></form>
+      </div>-->
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+      
+        <td><a class="main-nav-link" href="/">Home</a></td>
+      
+        <td><a class="main-nav-link" href="/archives">Archives</a></td>
+      
+        <td><a class="main-nav-link" href="/about">About</a></td>
+      
+      <!--<td>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="sitesearch" value="http://seburgi.com"></form>
+      </td>-->
+      </tr>
+    </table>
+  </div>
+  
+</header>
+    <div class="outer">
+      <aside id="profile">
+  <div class="inner profile-inner">
+  	<div class="base-info profile-block">
+		  <img id="avatar" src="http://www.gravatar.com/avatar/2333df8d5ee6c132343dc24517a92a33.png?s=128">
+      <h2 id="name">Sebastian Burgstaller</h2>
+      <h3 id="title">Software Engineer</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Villach, Austria</span>
+      <a id="follow" href="https://twitter.com/seburgi">FOLLOW</a>
+  	</div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        4
+        <span>posts</span>
+      </div>
+      <div class="article-info-block">
+        2
+        <span>tags</span>
+      </div>
+    </div>
+    
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+        
+          <td><a href="http://github.com/seburgi" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+        
+          <td><a href="https://twitter.com/seburgi" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+        
+          <td><a href="https://www.xing.com/profile/Sebastian_Burgstaller" target="_blank" title="xing"><i class="fa fa-xing"></i></a></td>
+        
+          <td><a href="https://www.linkedin.com/profile/view?id=122568298" target="_blank" title="linkedin"><i class="fa fa-linkedin"></i></a></td>
+        
+          <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+        
+        </tr>
+      </table>
+    </div>
+    
+  </div>
+</aside>
+      <section id="main"><article id="post-installing-autocad-2105-on-windows-10" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Installing AutoCAD 2015 on Windows 10
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/2015/07/28/installing-autocad-2105-on-windows-10/">
+    <time datetime="2015-07-28T06:15:00.000Z" itemprop="datePublished">2015-07-28</time>
+  </a>
+</div>
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="The_problem">The problem</h2><p>As the release of Windows 10 is imminent I wanted to try to install AutoCAD 2015 on it to see if everything would work fine after the upgrade, as Windows 10 is not (yet?) an officially supported OS for AutoCAD 2015. I downloaded VirtualBox and installed the latest preview build (10240) of Windows 10 in a virtual machine. Then I started the installation process of AutoCAD 2015 and after a couple of minutes I got the following error message:</p>
+<p><img src="/images/autocad-installation/error.jpg" alt="AutoCAD 2015 installation error"></p>
+<p>As you can see I’m trying to install the German version of AutoCAD and the error happens during the installation of the English language pack. The installer tried to find .NET framework 4.5 and came up blank. Now Windows 10 comes with .NET framework 4.6 preinstalled, which of course is backwards compatible with framework version 4.5 software. So everything should work fine, but AutoCAD seems to perform an exact version match. Bummer! After some googling I found different approaches to work around this problem. Some people suggested to edit the setup.ini of the AutoCAD installer, but that didn’t work out for me. Then I found following approach that worked like a charm!</p>
+<h2 id="DISCLAIMER!">DISCLAIMER!</h2><p>The following instructions involve editing your Windows registry, which is a dangerous and risky operation. Worst case scenario is that you won’t be able to boot your system again. So, please be aware of that! Also this approach is in no way approved or supported by Autodesk. Proceed at your own risk!</p>
+<h2 id="The_solution">The solution</h2><p>Open your registry editor by typing in “regedit” in the search box in the lower left corner of the screen and hit enter.</p>
+<p>Go to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Client.</p>
+<p><img src="/images/autocad-installation/regedit01.jpg" alt="Regedit - Step 1"></p>
+<p>Here you should see the entry with the key “Version”, which is what the AutoCAD installer checks. The value in my case was “4.6.00076”, but it is possible that depending on your Windows build and .NET version you will see a different value. Please write it down, you will need it later again. </p>
+<p>Next we want to change this value to “4.5.0”, but when we try Windows tells us that we don’t have the right permissions. So let’s get them! Right-click on the Client entry in the tree on the left side and select “Permissions…”.</p>
+<p><img src="/images/autocad-installation/regedit02.jpg" alt="Regedit - Step 2"></p>
+<p>Here we click on the “Advanced” button.</p>
+<p><img src="/images/autocad-installation/regedit03.jpg" alt="Regedit - Step 3"></p>
+<p>Now click on the “Change” link next to “TrustedInstaller”. In the following dialog you can select a user or group, that will be able to change the entry. I decided for the local Adminstrators group.</p>
+<p><img src="/images/autocad-installation/regedit04.jpg" alt="Regedit - Step 4"></p>
+<p>Close the dialogs and change the value of the Version entry to “4.5.0”.</p>
+<p><img src="/images/autocad-installation/regedit05.jpg" alt="Regedit - Step 5"></p>
+<p>Don’t close the Registry Editor yet, we will need it later to undo our changes. When you now try to install AutoCAD 2015 everything should just work!</p>
+<p><img src="/images/autocad-installation/success.jpg" alt="AutoCAD 2015 installation success"></p>
+<h2 id="Important_last_step">Important last step</h2><p>Ok so AutoCAD was installed, now it is time to undo our changes to the registry. Go back to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Client and change the Version back to whatever it was before you changed it. Close the Registry Editor and enjoy working with AutoCAD 2015 on your brand new Windows 10 installation!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://seburgi.com/2015/07/28/installing-autocad-2105-on-windows-10/" data-id="ciemd3bwx0002vgforrt6ycgs" class="article-share-link">Share</a>
+      
+        <a href="http://seburgi.com/2015/07/28/installing-autocad-2105-on-windows-10/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/autocad/">autocad</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/16/presentations-devmeetupk-2-3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          DevMeetupK and presentation slides
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/06/17/autocad-documentation-tragedy/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">AutoCAD documentation tragedy</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">recents</h3>
+    <div class="widget">
+      <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/09/16/presentations-devmeetupk-2-3/" class="title">DevMeetupK and presentation slides</a></p>
+              <p class="item-date"><time datetime="2015-09-16T05:10:00.000Z" itemprop="datePublished">2015-09-16</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/07/28/installing-autocad-2105-on-windows-10/" class="title">Installing AutoCAD 2015 on Windows 10</a></p>
+              <p class="item-date"><time datetime="2015-07-28T06:15:00.000Z" itemprop="datePublished">2015-07-28</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/06/17/autocad-documentation-tragedy/" class="title">AutoCAD documentation tragedy</a></p>
+              <p class="item-date"><time datetime="2015-06-17T04:55:00.000Z" itemprop="datePublished">2015-06-17</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/05/21/hello-world/" class="title">Hello World</a></p>
+              <p class="item-date"><time datetime="2015-05-21T06:23:00.000Z" itemprop="datePublished">2015-05-21</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/autocad/">autocad</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Sebastian Burgstaller<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script>
+  var disqus_shortname = 'seburgi';
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
