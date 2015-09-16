@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://seburgi.com/"/>
-  <updated>2015-09-16T05:39:28.323Z</updated>
+  <updated>2015-09-16T05:43:51.984Z</updated>
   <id>http://seburgi.com/</id>
   
   <author>
@@ -19,9 +19,9 @@
     <link href="http://seburgi.com/2015/09/16/presentations-devmeetupk-2-3/"/>
     <id>http://seburgi.com/2015/09/16/presentations-devmeetupk-2-3/</id>
     <published>2015-09-16T05:10:00.000Z</published>
-    <updated>2015-09-16T05:39:28.323Z</updated>
+    <updated>2015-09-16T05:43:51.984Z</updated>
     <content type="html"><![CDATA[<p><img src="/images/devmeetupk/logo.jpg" alt="DevMeetupK Logo"></p>
-<p>Our meetup group <a href="www.meetup.com/devmeetupk">DevMeetupK</a> in Villach, Austria now met for the third time and I have to say I am amazed by the friendly and dedicated community that is starting to form around it! Everybody has their own personal reasons to go to tech user groups. Getting a nice and easy intro to new technologies and meeting cool people who know what it means to work in such a fast evolving sector as ours, are just two.</p>
+<p>Our meetup group <a href="http://www.meetup.com/devmeetupk/" target="_blank" rel="external">DevMeetupK</a> in Villach, Austria now met for the third time and I have to say I am amazed by the friendly and dedicated community that is starting to form around it! Everybody has their own personal reasons to go to tech user groups. Getting a nice and easy intro to new technologies and meeting cool people who know what it means to work in such a fast evolving sector as ours, are just two.</p>
 <p>It is also very important for me (and I think I can speak for everyone in our group), that this is a safe environment, where everybody is welcome to ask questions, no matter how basic they may be. So please don’t hesitate and join us next time in October.</p>
 <p>I wanted to share my slides (in German) from the last two meetups, so here goes:</p>
 <ul>
@@ -31,7 +31,7 @@
 ]]></content>
     <summary type="html">
     <![CDATA[<p><img src="/images/devmeetupk/logo.jpg" alt="DevMeetupK Logo"></p>
-<p>Our meetup group <a href="www.meetup.com/devmeetupk">DevMeetupK</a> ]]>
+<p>Our meetup group <a href="http://www.meetup.com/devmeetupk/" target=]]>
     </summary>
     
   </entry>
